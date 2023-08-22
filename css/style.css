@@ -1,0 +1,75 @@
+@import url('https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css');
+
+.ba-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.ba-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 30px;
+}
+
+.ba-alert {
+    padding: 10px;
+}
+
+.ba-alert-title {
+    font-weight: bold;
+}
+
+.ba-warning,
+.ba-info,
+.ba-error,
+.ba-success {
+    border: solid;
+    border-width: 1px;
+}
+
+.ba-warning {
+    background-color: #fff8e5;
+    border-color: #ffb900;
+    color: #ffb900;
+}
+
+.ba-warning .ba-side {
+    background-color: #ffb900;
+    color: #fff8e5;
+}
+
+.ba-info {
+    background-color: #e5f5fa;
+    border-color: #00a0d2;
+    color: #00a0d2;
+}
+
+.ba-info .ba-side {
+    background-color: #00a0d2;
+    color: #e5f5fa;
+}
+
+.ba-error {
+    background-color: #fbeaea;
+    border-color: #dc3232;
+    color: #dc3232;
+}
+
+.ba-error .ba-side {
+    background-color: #dc3232;
+    color: #fbeaea;
+}
+
+.ba-success {
+    background-color: #eff7ed;
+    border-color: #64b450;
+    color: #64b450;
+}
+
+.ba-success .ba-side {
+    background-color: #64b450;
+    color: #eff7ed;
+}
