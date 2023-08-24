@@ -2,7 +2,7 @@
 /*
  * Plugin Name:       基本警告
  * Description:       一些已预格式化的警告框。（通过简码实现）
- * Version:           1.2
+ * Version:           1.2.2
  * Author:            Frank419
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -26,17 +26,17 @@
     }
     return $out;
  }
- function ba_error( $atts = array(), $content = null, $tag = '' ) {
+ function ba_important( $atts = array(), $content = null, $tag = '' ) {
     $out = '';
     $atts = array_change_key_case( (array) $atts, CASE_LOWER );
     $ba_atts = shortcode_atts( $atts, $tag );
     if(!is_null($content)) {
         $content = do_shortcode($content);
-        $out = '<div class="ba-wrapper ba-error"><div class="ba-side-wrapper"><div class="ba-side"><span class="fa fa-close"></span></div></div><div class="ba-alert"><div class="ba-alert-title">';
+        $out = '<div class="ba-wrapper ba-important"><div class="ba-side-wrapper"><div class="ba-side"><span class="fa fa-warning"></span></div></div><div class="ba-alert"><div class="ba-alert-title">';
         if(isset( $ba_atts['title'] )) {
             $out .= esc_html( $ba_atts['title'] );
         } else {
-            $out .= '警告！';
+            $out .= '重要！';
         }
         $out .= '</div><div class="ba-alert-content">';
         $out .= $content;
@@ -63,17 +63,17 @@
     return $out;
  }
 
- function ba_success( $atts = array(), $content = null, $tag = '' ) {
+ function ba_misc( $atts = array(), $content = null, $tag = '' ) {
     $out = '';
     $atts = array_change_key_case( (array) $atts, CASE_LOWER );
     $ba_atts = shortcode_atts( $atts, $tag );
     if(!is_null($content)) {
         $content = do_shortcode($content);
-        $out = '<div class="ba-wrapper ba-success"><div class="ba-side-wrapper"><div class="ba-side"><span class="fa fa-check"></span></div></div><div class="ba-alert"><div class="ba-alert-title">';
+        $out = '<div class="ba-wrapper ba-misc"><div class="ba-side-wrapper"><div class="ba-side"><span class="fa fa-info"></span></div></div><div class="ba-alert"><div class="ba-alert-title">';
         if(isset( $ba_atts['title'] )) {
             $out .= esc_html( $ba_atts['title'] );
         } else {
-            $out .= '成功！';
+            $out .= '提醒：';
         }
         $out .= '</div><div class="ba-alert-content">';
         $out .= $content;
@@ -85,7 +85,7 @@
 
 function ba_main_menu() {
     echo '<div class="wrap"><h1>基本警告</h1>';
-    echo '<p>版本: 1.0.5</p>';
+    echo '<p>版本: 1.2.2</p>';
     echo '<p>由Frank419呈现。</p></div>';
 }
 function ba_main_menu_page() {
@@ -109,9 +109,9 @@ function ba_add_styles() {
  
  }
  add_shortcode('warning', 'ba_warning');
- add_shortcode('error', 'ba_error');
+ add_shortcode('important', 'ba_important');
  add_shortcode('info', 'ba_info');
- add_shortcode('success', 'ba_success');
+ add_shortcode('misc', 'ba_misc');
  add_action( 'admin_menu', 'ba_main_menu_page' );
  add_action( 'wp_enqueue_scripts', 'ba_add_styles' );  
 
